@@ -1,0 +1,33 @@
+﻿<xs:schema xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:tns="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://v8.1c.ru/8.1/data/enterprise/current-config" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:import namespace="http://v8.1c.ru/8.1/data/core"/>
+	<xs:import namespace="http://v8.1c.ru/8.1/data/enterprise"/>
+	<xs:complexType name="DocumentObject.АктПринятия">
+		<xs:sequence>
+			<xs:element name="Ref" type="tns:DocumentRef.АктПринятия"/>
+			<xs:element name="DeletionMark" type="xs:boolean"/>
+			<xs:element name="Date" type="xs:dateTime"/>
+			<xs:element name="Number" type="xs:string"/>
+			<xs:element name="Posted" type="xs:boolean"/>
+			<xs:element name="ЧтоПринято" type="xs:string"/>
+			<xs:element name="КудаПринято" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DocumentObject.ТранспортнаяНакладная">
+		<xs:sequence>
+			<xs:element name="Ref" type="tns:DocumentRef.ТранспортнаяНакладная"/>
+			<xs:element name="DeletionMark" type="xs:boolean"/>
+			<xs:element name="Date" type="xs:dateTime"/>
+			<xs:element name="Number" type="xs:string"/>
+			<xs:element name="Posted" type="xs:boolean"/>
+			<xs:element name="Отправитель" type="xs:string"/>
+			<xs:element name="Получатель" type="xs:string"/>
+			<xs:element name="Перевозчик" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DocumentRef.АктПринятия">
+		<xs:restriction base="ent:AnyRef"/>
+	</xs:simpleType>
+	<xs:simpleType name="DocumentRef.ТранспортнаяНакладная">
+		<xs:restriction base="ent:AnyRef"/>
+	</xs:simpleType>
+</xs:schema>
